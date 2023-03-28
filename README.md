@@ -101,20 +101,12 @@ The steps below use Nginx Proxy Manager but any reverse proxy will do. The [CLN 
 
 1.  Use your chosen DNS provider to point your domain name or a subdomain to the IP address where CLN URL can be accessed.
 2.  Set up your reverse proxy. As I use Nginx Proxy Manager, here is my configuration:
-    1.  Establish the route between your domain and the host:port
-	
-	![Route](npm1.png)
-	
-    2.  Add two custom locations so that you can zap your lightning address as well as an LNURL. Replace 'thefockinfury' with whatever user name you like--probably the one you use on Nostr?
-	
-	![Locations](npm2.png)
-	
-	 _Adding the 'Access-Control-Allow-Origin' header here helps with certain nostr clients on the Web._
-    
-    3.  Set up SSL
-	
-	![SSL](npm3.png)
 
+| Step	| Description	| Image	|
+| -----	| -----		| -----	|
+| 1	| Establish the route between your domain and the host:port | ![Route](npm1.png) |
+| 2	| Add two custom locations so that you can zap your lightning address as well as an LNURL. Replace 'thefockinfury' with whatever user name you like--probably the one you use on Nostr? _Note: adding the 'Access-Control-Allow-Origin' header here helps with certain nostr clients on the Web._ | ![Locations](npm2.png) |
+| 3	| Set up SSL	| ![SSL](npm3.png) |
 
 ### Nostr Client Setup
 
