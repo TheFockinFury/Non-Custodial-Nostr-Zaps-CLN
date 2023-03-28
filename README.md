@@ -45,33 +45,9 @@ The guide below requires you to expose a port over Clearnet which does increase 
 
 You need to install two CLN plugins that will work together: [CLN-Zapper](https://github.com/thesimplekid/cln-zapper-rs) and [CLNURL](https://github.com/elsirion/clnurl).
 
-#### Install CLN-Zapper
-
-As the admin user on your Lightning node, from your home directory:
-
-1.  Clone the repository: `git clone https://github.com/thesimplekid/cln-zapper-rs`
-2.  Copy the cloned repo to a directory where you store your downloaded CLN plugins. If you followed the Raspibolt guide to set up your CLN node, the location would be something like: `cp -r ~/cln-zapper-rs-0.2.2/ /data/lightningd-plugins-available/`
-3.  Now, cd to that new location: `cd /data/lightningd-plugins-available/cln-zapper-rs-0.2.2`
-4.  Build the plugin: `cargo build -r` and grab a coffee. This will take a few minutes.
-5.  After the build is complete, the plugin file will be located in a subdirectory: `./target/release/cln-zapper`
-6.  Open your CLN config and add the following to the bottom:
-
-```
-# cln-zapper-plugin
-plugin=/data/lightningd-plugins-available/cln-zapper-rs-0.2.2/target/release/cln-zapper
-clnzapper_nostr_nsec=[The Nostr private key (nsec) you created earlier]
-clnzapper_nostr_relay=wss://relay.damus.io
-```
-
-You can use whatever Nostr relay you like on that last line; the plugin will attempt to broadcast each zap to all the relays that the user who zaps you includes in the request. Consider this more of a fallback.
-
-7.  Save your config and exit.
-
-You now have the CLN zapper plugin installed! Now you need to install the CLNURL plugin which is a dependency.
-
 #### Install CLNURL
 
-These steps are very similar to the ones you just followed to install CLN-Zapper. As the admin user on your node, return to your home directory. Then:
+As the admin user on your Lightning node, from your home directory: 
 
 1.  Clone the repository: `git clone https://github.com/elsirion/clnurl`
 2.  Copy the cloned repo to a directory where you store your downloaded CLN plugins. If you followed the Raspibolt guide to set up your CLN node, the location would be something like: `cp -r ~/clnurl/ /data/lightningd-plugins-available/`
@@ -91,6 +67,30 @@ clnurl_nostr_pubkey=[The hex-encoded public key of the Nostr identity you set up
 
 7.  Now save your config and exit, then restart the CLN service.
 
+#### Install CLN-Zapper
+
+_Note: you don't need to install CLN-Zapper in order to use LNURLs and user-friendly Lightning addresses with Core Lightning, but you do need to install it if you want those things to work with Zaps on Nostr. You can break here and skip down to the Networking and Testing sections if you want to test just this step._
+
+These steps are very similar to the ones you just followed to install CLNURL. As the admin user on your node, return to your home directory. Then:
+
+1.  Clone the repository: `git clone https://github.com/thesimplekid/cln-zapper-rs`
+2.  Copy the cloned repo to a directory where you store your downloaded CLN plugins. If you followed the Raspibolt guide to set up your CLN node, the location would be something like: `cp -r ~/cln-zapper-rs-0.2.2/ /data/lightningd-plugins-available/`
+3.  Now, cd to that new location: `cd /data/lightningd-plugins-available/cln-zapper-rs-0.2.2`
+4.  Build the plugin: `cargo build -r` and grab a coffee. This will take a few minutes.
+5.  After the build is complete, the plugin file will be located in a subdirectory: `./target/release/cln-zapper`
+6.  Open your CLN config and add the following to the bottom:
+
+```
+# cln-zapper-plugin
+plugin=/data/lightningd-plugins-available/cln-zapper-rs-0.2.2/target/release/cln-zapper
+clnzapper_nostr_nsec=[The Nostr private key (nsec) you created earlier]
+clnzapper_nostr_relay=wss://relay.damus.io
+```
+
+You can use whatever Nostr relay you like on that last line; the plugin will attempt to broadcast each zap to all the relays that the user who zaps you includes in the request. Consider this more of a fallback.
+
+7.  Save your config and exit.
+
 It's almost time to get zapping!
 
 ### Networking
@@ -105,12 +105,20 @@ The steps below use Nginx Proxy Manager but any reverse proxy will do. The [CLN 
 | Step	| Description	| Image	|
 | -----	| -----		| -----	|
 | 1	| Establish the route between your domain and the host:port | ![Route](npm1.png) |
-| 2	| Add two custom locations so that you can zap your lightning address as well as an LNURL. Replace 'thefockinfury' with whatever user name you like--probably the one you use on Nostr? _Note: adding the 'Access-Control-Allow-Origin' header here helps with certain nostr clients on the Web._ | ![Locations](npm2.png) |
+| 2	| Add two custom locations so that you can zap your lightning address as well as an LNURL. Replace 'thefockinfury' with whatever user name you like--probably the one you use on Nostr? Or, something like "tips" or "zaps." You can add as many of these as you like. _Note: adding the 'Access-Control-Allow-Origin' header here helps with certain nostr clients on the Web._ | ![Locations](npm2.png) |
 | 3	| Set up SSL	| ![SSL](npm3.png) |
+
+_Note: Step 2 above is optional, but allows you to use a user-friendly lightning address, such as "tips@sats.thefockinfury.wtf," instead of a lengthy LNURL in your Nostr profile._
 
 ### Nostr Client Setup
 
 It's time to put your new zappable lightning address into your Nostr client of choice!
+
+1. If you set up the custom locations in your reverse proxy (step 2.2 in the previous section), you can simply plug your Lightning address (e.g. "zaps@sats.thefockinfury.wtf") into your Nostr client.
+
+_--OR--_
+
+If you prefer not to set up the custom locations in your reverse proxy (step 2.2 in the previous section), you can still encode your domain as an LNURL to use for zaps.
 
 1.  Encode your domain name as an LNURL using [this tool](https://lnurl.fiatjaf.com/codec/). I used 'sats.thefockinfury.wtf' as my domain name. Therefore, I would input 'sats.thefockinfury.wtf/lnurl' into the encoder.
 2.  Take the resulting LNRUL and set that as your lightning address in your Nostr client.
