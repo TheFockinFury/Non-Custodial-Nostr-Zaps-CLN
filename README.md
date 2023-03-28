@@ -5,7 +5,7 @@ A guide for configuring your Core Lightning node to accept non-custodial zaps on
 
 Nostr is an exciting decentralized social media (and more!) protocol that affords users self-sovereignty over their data. It's also tightly integrated with Bitcoin's Lightning Network, enabling users to "zap" each other small amounts of bitcoin for posts, ideas, and dank memes.
 
-There are several ways to do this custodially, placing trust over your lightning transactions innto a third party's hands. [Lightning Tip Bot](https://t.me/LightningTipBot) and [Wallet of Satoshi](https://www.walletofsatoshi.com/) are two major players in the space.
+There are several ways to do this custodially, placing trust over your lightning transactions into a third party's hands. [Lightning Tip Bot](https://t.me/LightningTipBot) and [Wallet of Satoshi](https://www.walletofsatoshi.com/) are two major players in the space.
 
 If you prefer to send and receive zaps without needing to trust a third party, things get more complicated. Many options are still in development. But if you happen to be running a Core Lightning node, there's already a great solution for you to use!
 
