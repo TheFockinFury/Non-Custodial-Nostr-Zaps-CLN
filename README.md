@@ -52,7 +52,7 @@ As the admin user on your Lightning node, from your home directory:
 1.  Clone the repository: `git clone https://github.com/elsirion/clnurl`
 2.  Copy the cloned repo to a directory where you store your downloaded CLN plugins. If you followed the Raspibolt guide to set up your CLN node, the location would be something like: `cp -r ~/clnurl/ /data/lightningd-plugins-available/`
 3.  Now, cd to that new location: `cd /data/lightningd-plugins-available/clnurl`
-4.  Build the plugin: `cargo build -r`. Time for another coffee!
+4.  Build the plugin: `cargo build -r` and grab a coffee. This will take a few minutes.
 5.  After the build is complete, the plugin file will be located in a subdirectory: `./target/release/clnurl`
 6.  Open your CLN config and add the following to the bottom:
 
@@ -69,14 +69,14 @@ clnurl_nostr_pubkey=[The hex-encoded public key of the Nostr identity you set up
 
 #### Install CLN-Zapper
 
-_Note: you don't need to install CLN-Zapper in order to use LNURLs and user-friendly Lightning addresses with Core Lightning, but you do need to install it if you want those things to work with Zaps on Nostr. You can break here and skip down to the Networking and Testing sections if you want to test just this step._
+_Note: you don't need to install CLN-Zapper in order to use LNURLs and user-friendly Lightning addresses with Core Lightning, but you do need to install it if you want those things to work with Zaps on Nostr. You can break here and skip down to the Networking and Testing sections if you want to make sure that just the previous step is working as intended._
 
 These steps are very similar to the ones you just followed to install CLNURL. As the admin user on your node, return to your home directory. Then:
 
 1.  Clone the repository: `git clone https://github.com/thesimplekid/cln-zapper-rs`
 2.  Copy the cloned repo to a directory where you store your downloaded CLN plugins. If you followed the Raspibolt guide to set up your CLN node, the location would be something like: `cp -r ~/cln-zapper-rs-0.2.2/ /data/lightningd-plugins-available/`
 3.  Now, cd to that new location: `cd /data/lightningd-plugins-available/cln-zapper-rs-0.2.2`
-4.  Build the plugin: `cargo build -r` and grab a coffee. This will take a few minutes.
+4.  Build the plugin: `cargo build -r`. Time for another coffee!
 5.  After the build is complete, the plugin file will be located in a subdirectory: `./target/release/cln-zapper`
 6.  Open your CLN config and add the following to the bottom:
 
