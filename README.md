@@ -100,12 +100,18 @@ You'll need to establish a path from the internet to the open port on the CLN UR
 1.  Use your chosen DNS provider to point your domain name or a subdomain to the IP address where CLN URL can be accessed.
 2.  Set up your reverse proxy. As I use Nginx Proxy Manager, here is my configuration:
     1.  Establish the route between your domain and the host:port
-	![Screenshot 2023-03-28 at 1.05.54 PM.png](:/c9028e86d7ad4d61bb443328b3f5d168)
-	2.  Add two custom locations so that you can zap your lightning address as well as an LNURL. Replace 'thefockinfury' with whatever user name you like--probably the one you use on Nostr?
-	![Screenshot 2023-03-28 at 1.06.09 PM.png](:/a3c14f20444f42ef8a75f4a0ca4bbd40)
-	Adding the 'Access-Control-Allow-Origin' header here helps with certain nostr clients on the Web.
-	3.  Set up SSL
-	![Screenshot 2023-03-28 at 1.06.25 PM.png](:/4ec9c947348548fab1699a47e0605ad4)
+	
+	![Route](npm1.png)
+	
+    2.  Add two custom locations so that you can zap your lightning address as well as an LNURL. Replace 'thefockinfury' with whatever user name you like--probably the one you use on Nostr?
+	
+	![Locations](npm2.png)
+	
+	 _Adding the 'Access-Control-Allow-Origin' header here helps with certain nostr clients on the Web._
+    
+    3.  Set up SSL
+	
+	![SSL](npm3.png)
 
 
 ### Nostr Client Setup
@@ -150,5 +156,5 @@ I knew next to nothing about the inner workings of Lightning, the intricacies of
 ### Tips
 The people I linked above did all the actual work here and deserve all the credit and tips you can muster! But if you have some sats left over after all of that and would like to throw some my way, you can do so here:
 
-![lnurl.png](:/25c59152976b47c4b8e8c7558f9cbfc4)
+![lnurl1dp68gurn8ghj7umpw3ejuargv4nx7cmtd9hxvatj0yh8warx9uh8wetvdskkkmn0wahz7mrww4excup0w35x2en0vd4kjmnxw4e8jreusva](lnurl.png)
 lnurl1dp68gurn8ghj7umpw3ejuargv4nx7cmtd9hxvatj0yh8warx9uh8wetvdskkkmn0wahz7mrww4excup0w35x2en0vd4kjmnxw4e8jreusva
