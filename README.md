@@ -97,6 +97,8 @@ It's almost time to get zapping!
 
 You'll need to establish a path from the internet to the open port on the CLN URL plugin. **Remember: you must use SSL.**
 
+The steps below use Nginx Proxy Manager but any reverse proxy will do. The [CLN URL repo](https://github.com/elsirion/clnurl) has more information about reverse proxy configuration using Nginx.
+
 1.  Use your chosen DNS provider to point your domain name or a subdomain to the IP address where CLN URL can be accessed.
 2.  Set up your reverse proxy. As I use Nginx Proxy Manager, here is my configuration:
     1.  Establish the route between your domain and the host:port
