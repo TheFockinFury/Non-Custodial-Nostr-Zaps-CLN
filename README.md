@@ -158,5 +158,11 @@ I knew next to nothing about the inner workings of Lightning, the intricacies of
 ### Tips
 The people I linked above did all the actual work here and deserve all the credit and tips you can muster! But if you have some sats left over after all of that and would like to throw some my way, you can do so here:
 
-![lnurl1dp68gurn8ghj7umpw3ejuargv4nx7cmtd9hxvatj0yh8warx9uh8wetvdskkkmn0wahz7mrww4excup0w35x2en0vd4kjmnxw4e8jreusva](lnurl.png)
-lnurl1dp68gurn8ghj7umpw3ejuargv4nx7cmtd9hxvatj0yh8warx9uh8wetvdskkkmn0wahz7mrww4excup0w35x2en0vd4kjmnxw4e8jreusva
+| Format	| Value |
+| ---	| ---	|
+| QR 	| ![qr](lnurl.png)	|
+| Address	| tips@sats.thefockinfury.wtf	|
+| LNURL	| lnurl1dp68gurn8ghj7umpw3ejuargv4nx7cmtd9hxvatj0yh8warx9uh8wetvdskkkmn0wahz7mrww4excup0w35x2en0vd4kjmnxw4e8jreusva	|
+
+### Contact
+Find me on Nostr! npub15akupx5vysmuprv335yfd34ppnpz5h48gvu6pyj3whddecwf2z8s9vds8f
