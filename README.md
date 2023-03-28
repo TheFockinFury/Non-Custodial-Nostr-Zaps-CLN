@@ -108,7 +108,7 @@ The steps below use Nginx Proxy Manager but any reverse proxy will do. The [CLN 
 | 2	| Add two custom locations so that you can zap your lightning address as well as an LNURL. Replace 'thefockinfury' with whatever user name you like--probably the one you use on Nostr? Or, something like "tips" or "zaps." You can add as many of these as you like. _Note: adding the 'Access-Control-Allow-Origin' header here helps with certain nostr clients on the Web._ | ![Locations](npm2.png) |
 | 3	| Set up SSL	| ![SSL](npm3.png) |
 
-_Note: Step 2 above is optional, but allows you to use a user-friendly lightning address, such as "tips@sats.thefockinfury.wtf," instead of a lengthy LNURL in your Nostr profile._
+_Note: Step 2.2 above is optional, but allows you to use a user-friendly lightning address, such as "tips@sats.thefockinfury.wtf," instead of a lengthy LNURL in your Nostr profile._
 
 ### Nostr Client Setup
 
