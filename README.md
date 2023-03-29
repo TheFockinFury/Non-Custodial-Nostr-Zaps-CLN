@@ -29,8 +29,9 @@ This guide assumes that you already own a domain, that you have your reverse pro
     
 2.  Next, create a Nostr private and public key using any Nostr client (Damus, Iris, Snort, etc.). Convert the public key (npub) to hex using [this tool](https://damus.io/key/). Leave the private key (nsec) as-is; you don't need to convert it. Save both for later.
     
-3.  If you're using a firewall on your Lightning node, you'll need to open port 9876 on that machine so that one of the plugins we'll be installing later can communicate with the outside world. If using UFW, you should do:
-    `sudo ufw allow 9876 comment 'allow CLN URL plugin'`
+3.  Log in to some Nost client with your newly-created identiy and set a username and display name on that account. Some relays might filter out notes from accounts without names so this will help ensure your zaps are able to propagate to relays.
+
+4. Optionally, you can verify this new "zaps only" identity on a site like nostrplebs.com and then put that NIP-05 ID into your Nostr profile as an extra measure to ensure your zaps can propagate. 
     
 
 ### Build and Configure the Plugins
