@@ -21,14 +21,6 @@ If you prefer to send and receive zaps without needing to trust a third party, t
 
 This guide assumes that you already own a domain, that you have your reverse proxy up and running to point requests from the Internet over to your server, and that you have a Lightning node with Bitcoin and Core Lightning installed.
 
-### Security
-
-The guide below requires you to expose a port over Clearnet which does increase your attack surface and may pose privacy or security challenges if not done carefully. Consider doing the following before moving forward:
-
-- If you absolutely must open a port on your home router, consider using a DNS service like Cloudflare when following this guide. Cloudflare allows you to proxy your connections so that your home IP is at least not exposed directly in DNS entries.
-- Rather than exposing a port on your home router, consider setting up a [Cloudflare Zero Trust tunnel](https://omar2cloud.github.io/cloudflare/cloudflared/cloudflare/) instead.
-- The self-hosting purist may instead prefer to remove all reliance on third parties along your request path. You can rent a cheap virtual private server through providers like Linode or Digital Ocean, then set up your own VPN tunnel between that server and your home network. A setup like this has the added benefit of allowing you to operate your node over Clearnet without exposing your private IP address; the only IP that gets exposed is the IP of your virtual server in the cloud. Here is an [excellent guide](https://github.com/TrezorHannes/Dual-LND-Wireguard-VPS) for how to set that up. It's written for an LND node but is easy to translate the required config changes to CLN.
-
 ### Getting Ready
 
 1.  First, you'll need to install Rust as that will be required to build the Core Lightning plugins we're going to add. As per the installation guide [here](https://www.rust-lang.org/learn/get-started), run the following as your admin user on your Lightning node:
